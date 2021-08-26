@@ -14,7 +14,7 @@ define([
 
         templateString: widgetTemplate,
 
-
+//test
         widgetBase: null,
 
         // Internal variables.
