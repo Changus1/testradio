@@ -1,0 +1,252 @@
+@import 'custom-variables.scss';
+@import 'hamburger';
+
+@import "https://cdn.byu.edu/theme-fonts/1.x.x/ringside/fonts.css";
+@import "https://cdn.byu.edu/theme-fonts/1.x.x/public-sans/fonts.css";
+
+// BYU specific variables
+$font-headers: $font-family-base;
+$font-body-primary: 'Public Sans', Helvetica, Arial, sans-serif;
+$font-body-secondary: 'Roboto', sans-serif;
+$header-maxwidth: 100%;
+$body-maxwidth: 100%;
+$environment-local: indianred;
+$environment-acceptance: cyan;
+$navigation-sub-padding: 5px 23px;
+
+body {
+    font-family: $font-body-primary;
+}
+h1,h2,h3,h4,h5,h6,
+.h1,.h2,.h3,.h4,.h5,.h6 {
+    font-family: $font-headers;
+}
+
+.byu-header {
+	// box-shadow: 0 0 10px rgba(0, 0, 0, 0.16);
+    box-shadow: 0 1px 4px 0 rgb(0 0 0 / 14%);
+	z-index: 3;
+    font-family: $font-headers;
+
+    &::before {
+        z-index: 1;
+        display: block;
+        width: 100%;
+        height: 4px;
+        content: "";
+        background-color: $brand-default;
+    }
+    
+    .byu-header__banner {
+        background: $topbar-bg;
+        min-height: $topbar-minimalheight;
+        padding: 13px 16px;
+        line-height: 18.4px;
+        display: grid;
+        align-items: center;
+        grid-template-columns: 1fr minmax(auto, $header-maxwidth) 1fr;
+    
+        img.byu-header__logo {
+            min-width: 75px;
+            display: flex;
+            align-items: center;
+            justify-self: flex-end;
+            -webkit-tap-highlight-color: transparent;
+            margin: 0 15px;
+        }
+    
+        .byu-header__content {
+            display: grid;
+            grid-template-columns: auto min-content;
+            grid-column-gap: 0.75em;
+            border-left: 1px solid rgba(255, 255, 255, 0.25);
+            position: relative;
+            margin: 0;
+            
+            .byu-header__titles {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                padding: 5px 0 5px 1em;
+                padding: 6px 24px;
+    
+                a {
+                    font-size: 1.5em;
+                    line-height: 1.25em;
+                    color: white;
+                    text-decoration: none;
+                    -webkit-tap-highlight-color: transparent;
+                }
+            }
+        }
+
+        .byu-header__user {
+            > div:not(.byu-header__nav-mobile-btn) {
+                @media (max-width: $screen-xs-max) {
+                    display: none;
+                }
+            }
+            .byu-user-info {
+                display: flex;
+                margin-left: auto;
+                font-size: $font-size-default;
+                
+                a {
+                    color: #fff;
+                    padding: 0 10px 0 0;
+                    font-size: 16px;
+                    img {
+                        height: 20px;
+                    }
+                }
+            }
+            
+            .byu-header__nav-mobile-btn {
+                @media (min-width: $screen-sm) {
+                    display: none;
+                }
+            }
+        }
+
+    }
+    
+    .byu-header__nav {
+        .mx-navbar {
+            min-height: 44px;
+            display: grid;
+            grid-template-columns: minmax(123px, 1fr) minmax(auto, $header-maxwidth) 1fr;
+        
+            ul.nav {
+                grid-column: 2 / 3;
+                padding-left: 15px;
+                float: unset;
+                display: flex;
+        
+                > li {
+                    min-height: 44px;
+                    float: unset !important;
+        
+                    > a {
+                        display: flex;
+                        align-items: center;
+                        padding: 0 0.75em;
+                        min-height: 44px;
+                        font-size: 16px !important;
+        
+                        &::after {
+                            content: '';
+                            height: 3px;
+                            width: 100%;
+                            position: absolute;
+                            bottom: 0;
+                            left: 0;
+                            background-color: white;
+                            transition: background-color .25s;
+                        }
+                        &:hover::after,
+                        &:focus::after,
+                        &:active::after {
+                            background-color: $brand-default;
+                        }
+                    }
+    
+                    &.active,
+                    &.open {
+                        > a {
+                            background: white;
+                            &::after {
+                                background-color: $brand-default;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        @media (max-width: $screen-xs-max) {
+            display: none;
+        }
+    }
+
+    .byu-header__nav-mobile {
+        // Needed for mobile dropdown transitions
+        transition: height .3s ease-out;
+        overflow: hidden;
+        height: auto;
+        
+        .nav-actions {
+            display: flex;
+            background-color: #ededed;
+            justify-content: space-between;
+        
+            > .nav-action {
+                transition: .25s;
+        
+                a {
+                    width: 100%;
+                    height: 100%;
+                    padding: 8px 22px;
+                    font-size: $navtopbar-font-size;
+                    color: $brand-default;
+                    text-decoration: none;
+                }
+            }
+        }
+
+        .mx-navigationtree {
+            .navbar-inner > ul {
+                > li.mx-navigationtree-has-items {
+                    ul > li > a {
+                        padding: $navigation-sub-padding;
+                    }
+                }
+            }
+        }
+
+        @media (min-width: $screen-sm) {
+            display: none;
+        }
+    }
+}
+
+.env-local .byu-header:before {
+    background-color: $environment-local;
+}
+.env-acceptance .byu-header:before {
+    background-color: $environment-acceptance;
+}
+
+.byu-body {
+    position: relative;
+    min-height: calc(100vh - 98px);
+    margin: 0 auto;
+    max-width: $body-maxwidth;
+}
+
+.byu-footer {
+    .byu-footer__main {
+        background-color: #002e5d;
+        padding: 20px;
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: center;
+        align-items: center;
+
+        img {
+            width: 345px;
+        }
+        span {
+            text-align: center;
+            color: rgb(255, 255, 255);
+            font-size: 9.77776px;
+        }
+    }
+}
+
+.btn-default {
+    &:hover,
+    &:active,
+    &:focus {
+        color: #fff;
+    }
+}

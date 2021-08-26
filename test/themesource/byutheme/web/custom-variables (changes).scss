@@ -1,0 +1,109 @@
+//
+// ██████╗  █████╗ ███████╗██╗ ██████╗
+// ██╔══██╗██╔══██╗██╔════╝██║██╔════╝
+// ██████╔╝███████║███████╗██║██║
+// ██╔══██╗██╔══██║╚════██║██║██║
+// ██████╔╝██║  ██║███████║██║╚██████╗
+// ╚═════╝ ╚═╝  ╚═╝╚══════╝╚═╝ ╚═════╝
+//
+
+//== Gray Shades
+//## Different gray shades to be used for our variables and components
+$gray-darker: #0a1325;
+$gray-dark: #474e5c;
+$gray: #787d87;
+$gray-light: #a9acb3;
+$gray-primary: #e7e7e9;
+$gray-lighter: #f8f8f8;
+
+//== Step 1: Brand Colors
+$brand-default: #002e5d;
+$brand-primary: #0062b8;
+$brand-success: #10a170;
+$brand-warning: #ffb700;
+$brand-danger: #e61744;
+
+$brand-default-darker:                  mix($brand-default, black, 60%);
+$brand-default-dark:                    mix($brand-default, black, 70%);
+$brand-default-light:                   mix($brand-default, white, 60%);
+$brand-default-lighter:                 mix($brand-default, white, 20%);
+
+$brand-primary-darker:                  mix($brand-primary, black, 60%);    
+$brand-primary-dark:                    mix($brand-primary, black, 70%);
+$brand-primary-light:                   mix($brand-primary, white, 60%);
+$brand-primary-lighter:                 mix($brand-primary, white, 20%);
+
+$brand-info-darker:                     #006073;  
+$brand-info-dark:                       #006073;
+$brand-info-light:                      #b3f2ff;
+$brand-info-lighter:                    #b3f2ff;
+
+$brand-success-darker:                  mix($brand-success, black, 60%);
+$brand-success-dark:                    mix($brand-success, black, 70%);
+$brand-success-light:                   mix($brand-success, white, 60%);
+$brand-success-lighter:                 mix($brand-success, white, 20%);  
+
+$brand-warning-darker:                  mix($brand-warning, black, 60%);   
+$brand-warning-dark:                    mix($brand-warning, black, 70%);
+$brand-warning-light:                   mix($brand-warning, white, 60%);
+$brand-warning-lighter:                 mix($brand-warning, white, 20%);
+
+$brand-danger-darker:                   mix($brand-danger, black, 60%);   
+$brand-danger-dark:                     mix($brand-danger, black, 70%);
+$brand-danger-light:                    mix($brand-danger, white, 60%);
+$brand-danger-lighter:                  mix($brand-danger, white, 20%);
+
+$font-size-default: 16px;
+$topbar-bg: $brand-default; //--------------------------------------
+$topbar-minimalheight: 65px; //--------------------------------------
+$navigation-bg: #fff; //--------------------------------------
+$navigation-color: $brand-default; //--------------------------------------
+$navigation-bg-hover: #fff; //--------------------------------------
+$navigation-bg-active: #fff; //--------------------------------------
+$bg-color: #fff; //----------------------------
+
+$font-family-base: "HCo Ringside Narrow SSm", "Arial", sans-serif;
+
+
+//== Navigation
+//## Used in components/navigation
+
+// Default Navigation styling
+$navigation-item-height: unset;
+$navigation-item-padding: 8px 22px; //--------------------------------------------
+
+$navigation-sub-bg: white;
+$navigation-sub-color: $gray-light;
+$navigation-sub-padding: 5px 23px; //-------------------------------------------
+
+
+
+$navigation-font-size: 14px;
+$navigation-sub-font-size: $font-size-small;
+$navigation-glyph-size: 20px; // For glyphicons that you can select in the Mendix Modeler
+
+
+
+$navigation-color: $brand-default; //--------------------------------------
+$navigation-color-hover: $brand-default; //--------------------------------------
+$navigation-color-active: $brand-default; //--------------------------------------
+
+// Navigation Sidebar
+$navsidebar-bg: $navigation-bg; //--------------------------------------
+$navsidebar-bg-hover: $navigation-bg; //--------------------------------------
+$navsidebar-bg-active: $navigation-bg; //--------------------------------------
+
+$navsidebar-sub-bg: $navigation-bg; //--------------------------------------
+$navsidebar-sub-bg-hover: $navigation-bg; //--------------------------------------
+$navsidebar-sub-bg-active: $navigation-bg; //--------------------------------------
+
+$navtopbar-bg: white; //--------------------------------------
+$navtopbar-bg-hover: darken($navtopbar-bg, 4); //--------------------------------------
+$navtopbar-bg-active: white; //--------------------------------------
+
+// Navigation topbar
+$navtopbar-color: $font-color-default; //-------------------------------------
+$navtopbar-color-hover: $navtopbar-color; //-------------------------------------
+$navtopbar-color-active: $navtopbar-color; //-------------------------------------
+
+$navigation-sub-color-active: $brand-default;
